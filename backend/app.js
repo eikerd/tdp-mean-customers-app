@@ -20,18 +20,14 @@ app.get('/', (req, res) => {
     res.send("Welcome to Customers API !")
 })
 
-app.listen(PORT, (error) => {
-    if (!error)
-        console.log("Server is successfully listening at port:", PORT);
-    else
-        console.error('An error occurred:', error);
-});
 
 main().catch((error) => console.error(error));
 
 async function main() {
     // prepre conn string
-    const connectionString = "your_mongo_db_connection_string_here";
+    const connectionString = "mongodb+srv://psylux:moscow@listotravel.cm8aj.mongodb.net/?retryWrites=true&w=majority&appName=ListoTravel"
     await mongoose.connect(connectionString);
     mongoose.set('strictQuery', true);
 }
+
+module.exports = app;
